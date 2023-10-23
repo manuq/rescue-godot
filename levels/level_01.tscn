@@ -1,0 +1,371 @@
+[gd_scene load_steps=32 format=3 uid="uid://dm6g3j20f27cp"]
+
+[ext_resource type="Script" path="res://levels/level_01.gd" id="1_yqr7u"]
+[ext_resource type="Texture2D" uid="uid://d4dq2hh6pw3m" path="res://assets/kenney_platformer-art-candy/Vector/sheet.svg" id="2_5e227"]
+[ext_resource type="Script" path="res://scenes/TextureProgressBar.gd" id="3_8b2re"]
+[ext_resource type="Shader" uid="uid://dmobr62m232a8" path="res://scenes/background-effect.tres" id="4_55o35"]
+[ext_resource type="Texture2D" uid="uid://bwlu8aouf52vq" path="res://assets/kenney_background-elements-redux/PNG/Default/bushOrange4.png" id="5_nakr5"]
+[ext_resource type="Texture2D" uid="uid://c3ys77jblacat" path="res://assets/kenney_background-elements-redux/PNG/Default/bushOrange1.png" id="6_or41s"]
+[ext_resource type="Texture2D" uid="uid://dflojoe7ky57k" path="res://assets/kenney_background-elements-redux/PNG/Default/bushOrange2.png" id="7_t77im"]
+[ext_resource type="Texture2D" uid="uid://xyf3f1imjslx" path="res://assets/kenney_background-elements-redux/PNG/Default/bushOrange3.png" id="8_8nue2"]
+[ext_resource type="Texture2D" uid="uid://dsm4p4mpxf33a" path="res://assets/kenney_background-elements-redux/PNG/Default/houseAlt1.png" id="9_86jjq"]
+[ext_resource type="PackedScene" uid="uid://2mokpmh6xued" path="res://scenes/portal-in.tscn" id="10_jwp0c"]
+[ext_resource type="PackedScene" uid="uid://c7tge7qhfforp" path="res://scenes/portal-out.tscn" id="11_xtkdi"]
+[ext_resource type="PackedScene" uid="uid://bb5ufxd3s030g" path="res://scenes/player.tscn" id="12_4lo0s"]
+[ext_resource type="Shader" path="res://scenes/goal_effect.gdshader" id="13_8ly3t"]
+[ext_resource type="PackedScene" uid="uid://co6d747p77y5v" path="res://scenes/arrow.tscn" id="14_ktaun"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iepbo"]
+size = Vector2(1587, 1194)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jjf2s"]
+texture = ExtResource("2_5e227")
+texture_region_size = Vector2i(70, 70)
+0:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+2:0/0 = 0
+2:2/0 = 0
+1:2/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+9:3/0 = 0
+9:2/0 = 0
+9:1/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+13:1/0 = 0
+13:2/0 = 0
+12:1/0 = 0
+11:1/0 = 0
+10:1/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+12:3/0 = 0
+11:3/0 = 0
+10:3/0 = 0
+10:5/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+13:5/0 = 0
+12:5/0 = 0
+11:5/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+13:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_oox2t"]
+tile_size = Vector2i(70, 70)
+sources/0 = SubResource("TileSetAtlasSource_jjf2s")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_er3tt"]
+size = Vector2(342, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdacc"]
+size = Vector2(5519, 143.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i0xb"]
+atlas = ExtResource("2_5e227")
+region = Rect2(769.962, 280.315, 70.0743, 69.507)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hja1s"]
+atlas = ExtResource("2_5e227")
+region = Rect2(700.188, 280.358, 69.7483, 69.9376)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7230x"]
+shader = ExtResource("4_55o35")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oernc"]
+shader = ExtResource("4_55o35")
+
+[sub_resource type="Gradient" id="Gradient_c51hn"]
+colors = PackedColorArray(0.527881, 0.2381, 0, 1, 0.996078, 0.960784, 0.85098, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sa0ul"]
+gradient = SubResource("Gradient_c51hn")
+
+[sub_resource type="Environment" id="Environment_dv3lw"]
+background_mode = 3
+ssr_fade_in = 0.0568394
+adjustment_enabled = true
+adjustment_saturation = 1.95
+adjustment_color_correction = SubResource("GradientTexture1D_sa0ul")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mke3b"]
+shader = ExtResource("13_8ly3t")
+shader_parameter/strength = 0.08
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 0.0
+shader_parameter/aberration = 0.425
+shader_parameter/width = 0.04
+shader_parameter/feather = 0.135
+
+[sub_resource type="Animation" id="Animation_ym4u6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GoalEffect/ColorRect:material:shader_parameter/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1vkg2"]
+resource_name = "goal-animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GoalEffect/ColorRect:material:shader_parameter/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.999487, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xto82"]
+_data = {
+"RESET": SubResource("Animation_ym4u6"),
+"goal-animation": SubResource("Animation_1vkg2")
+}
+
+[sub_resource type="Theme" id="Theme_cx6n3"]
+default_font_size = 200
+
+[node name="Level01" type="Node2D"]
+script = ExtResource("1_yqr7u")
+
+[node name="LevelBounds" type="Area2D" parent="." groups=["level_bounds"]]
+scale = Vector2(1.24, 1)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBounds"]
+position = Vector2(706.5, 417)
+shape = SubResource("RectangleShape2D_iepbo")
+debug_color = Color(1, 1, 1, 0)
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(54, 34)
+tile_set = SubResource("TileSet_oox2t")
+format = 2
+layer_0/tile_data = PackedInt32Array(589824, 196608, 2, 589825, 196608, 2, 589826, 196608, 2, 589827, 196608, 2, 589828, 196608, 2, 589829, 196608, 2, 589830, 196608, 2, 589831, 196608, 2, 589832, 196608, 2, 589833, 196608, 2, 589834, 196608, 2, 589835, 196608, 2, 589836, 196608, 2, 589837, 196608, 2, 589838, 196608, 2, 589839, 196608, 2, 589840, 196608, 2, 589841, 196608, 2, 589842, 196608, 2, 655378, 131072, 3, 655377, 131072, 3, 655376, 131072, 3, 655375, 131072, 3, 655374, 131072, 3, 655373, 131072, 3, 655372, 131072, 3, 655371, 131072, 3, 655370, 131072, 3, 655369, 131072, 3, 655368, 131072, 3, 655367, 131072, 3, 655366, 131072, 3, 655365, 131072, 3, 655364, 131072, 3, 720895, 131072, 3, 655360, 131072, 3, 655361, 131072, 3, 655362, 131072, 3, 655363, 131072, 3, 655359, 196608, 2, 524289, 458752, 5, 327681, 458752, 5, 393217, 458752, 5, 458753, 458752, 5, 262145, 196608, 2, 262144, 65536, 3, 196609, 262144, 4, 262146, 196608, 3, 589843, 196608, 2, 589844, 196608, 2, 589845, 196608, 2, 589846, 196608, 2, 589847, 196608, 2, 589848, 196608, 2, 589849, 196608, 2, 589850, 196608, 2, 589851, 196608, 2, 589852, 196608, 2, 589853, 196608, 2, 655379, 131072, 3, 655380, 131072, 3, 655381, 131072, 3, 655382, 131072, 3, 655383, 131072, 3, 655384, 131072, 3, 655389, 131072, 3, 655388, 131072, 3, 655387, 131072, 3, 655386, 131072, 3, 655385, 131072, 3, 655390, 131072, 3, 655391, 131072, 3, 655392, 131072, 3, 655393, 131072, 3, 655394, 131072, 3, 655395, 131072, 3, 655396, 131072, 3, 655397, 131072, 3, 655398, 131072, 3, 655399, 131072, 3, 655400, 131072, 3, 655401, 131072, 3, 655402, 131072, 3, 655403, 131072, 3, 655404, 131072, 3, 655405, 131072, 3, 655406, 131072, 3, 655407, 131072, 3, 655408, 131072, 3, 655409, 131072, 3, 655410, 131072, 3, 655411, 131072, 3, 655412, 131072, 3, 655413, 131072, 3, 655414, 131072, 3, 655415, 131072, 3, 655416, 131072, 3, 589854, 196608, 2, 589855, 196608, 2, 589856, 196608, 2, 589857, 196608, 2, 589858, 196608, 2, 589859, 196608, 2, 589860, 196608, 2, 589861, 196608, 2, 589862, 196608, 2, 589863, 196608, 2, 589864, 196608, 2, 589865, 196608, 2, 589866, 196608, 2, 589867, 196608, 2, 589868, 196608, 2, 589869, 196608, 2, 589870, 196608, 2, 589871, 196608, 2, 589872, 196608, 2, 589873, 196608, 2, 589874, 196608, 2, 589875, 196608, 2, 589876, 196608, 2, 589877, 196608, 2, 589878, 196608, 2, 589879, 196608, 2, 589880, 196608, 2, 589881, 196608, 2, 655417, 131072, 3, 393253, 327680, 4, 458789, 458752, 4, 524325, 458752, 4, 262163, 327680, 0, 262164, 196608, 0, 262165, 196608, 0, 262166, 196608, 0, 262167, 327680, 1, 327700, 65536, 5, 393236, 65536, 5, 458772, 65536, 5, 524308, 65536, 5, 327702, 65536, 5, 393238, 65536, 5, 458774, 65536, 5, 524310, 65536, 5, 196629, 196608, 4, 393240, 327680, 4, 458776, 458752, 4, 524312, 458752, 4)
+
+[node name="Goal" type="StaticBody2D" parent="." groups=["goal"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+position = Vector2(1594, 331)
+shape = SubResource("RectangleShape2D_er3tt")
+one_way_collision = true
+
+[node name="Floor" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floor" groups=["bounce_low"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D"]
+position = Vector2(1291.5, 735.75)
+shape = SubResource("RectangleShape2D_rdacc")
+one_way_collision = true
+
+[node name="StartTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="StartTimer"]
+offset_left = 176.0
+offset_top = 173.0
+offset_right = 246.0
+offset_bottom = 242.0
+scale = Vector2(0.560001, 0.560001)
+fill_mode = 4
+texture_under = SubResource("AtlasTexture_2i0xb")
+texture_progress = SubResource("AtlasTexture_hja1s")
+script = ExtResource("3_8b2re")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+material = SubResource("ShaderMaterial_7230x")
+position = Vector2(0, -126)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_oernc")
+offset_right = 1024.0
+offset_bottom = 1024.0
+
+[node name="ColorRect2" type="ColorRect" parent="ParallaxBackground/ParallaxLayer"]
+material = SubResource("ShaderMaterial_oernc")
+offset_left = 1024.0
+offset_right = 2048.0
+offset_bottom = 1024.0
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 1)
+
+[node name="BushOrange4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(97, 647)
+texture = ExtResource("5_nakr5")
+
+[node name="BushOrange1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(1301, 636)
+texture = ExtResource("6_or41s")
+
+[node name="BushOrange2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(1442, 641)
+texture = ExtResource("7_t77im")
+
+[node name="BushOrange3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(1018, 638)
+texture = ExtResource("8_8nue2")
+
+[node name="HouseAlt1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(1155, 552)
+texture = ExtResource("9_86jjq")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dv3lw")
+
+[node name="PortalIn" parent="." node_paths=PackedStringArray("portal_out") instance=ExtResource("10_jwp0c")]
+position = Vector2(1088, 265)
+portal_out = NodePath("../PortalOut")
+
+[node name="PortalOut" parent="." instance=ExtResource("11_xtkdi")]
+position = Vector2(1300, 183)
+rotation = 5.65012
+
+[node name="Player" parent="." instance=ExtResource("12_4lo0s")]
+position = Vector2(271, 660)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-1, -223)
+limit_left = 0
+limit_right = 2000
+limit_bottom = 2470
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_limits = true
+
+[node name="Fruits" type="Node2D" parent="."]
+
+[node name="GoalEffect" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="GoalEffect"]
+material = SubResource("ShaderMaterial_mke3b")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xto82")
+}
+
+[node name="Arrow" parent="." instance=ExtResource("14_ktaun")]
+position = Vector2(978, 236)
+rotation = -2.6504
+
+[node name="Arrow2" parent="." instance=ExtResource("14_ktaun")]
+position = Vector2(431, 481)
+rotation = -1.57079
+
+[node name="WinLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="WinLayer"]
+offset_left = -29.0
+offset_top = -19.0
+offset_right = 1306.0
+offset_bottom = 750.0
+color = Color(0, 0, 0, 0.752941)
+
+[node name="Label" type="Label" parent="WinLayer"]
+offset_right = 1292.0
+offset_bottom = 737.0
+theme = SubResource("Theme_cx6n3")
+text = "YOU WIN!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="StartTimer" to="." method="_on_timer_timeout"]

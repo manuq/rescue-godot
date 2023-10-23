@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7tge7qhfforp"]
+
+[ext_resource type="Script" path="res://scenes/portal-out.gd" id="1_07j36"]
+[ext_resource type="Shader" uid="uid://b7s32cdvk7ivd" path="res://scenes/portal.tres" id="1_vhpot"]
+[ext_resource type="Texture2D" uid="uid://d3rvy23acnq1j" path="res://assets/kenney_platformer-art-candy/Tiles/lollipopGreen.png" id="2_awpta"]
+
+[sub_resource type="Gradient" id="Gradient_ryqh7"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b2owj"]
+gradient = SubResource("Gradient_ryqh7")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_05uir"]
+shader = ExtResource("1_vhpot")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_07j36")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 66.0
+offset_top = 60.0
+offset_right = 130.0
+offset_bottom = 180.0
+rotation = -3.14159
+texture = SubResource("GradientTexture2D_b2owj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_05uir")
+scale = Vector2(0.450231, 1.71565)
+texture = ExtResource("2_awpta")

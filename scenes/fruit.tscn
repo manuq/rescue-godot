@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3 uid="uid://dme85xinebhav"]
+
+[ext_resource type="Script" path="res://scenes/fruit.gd" id="1_1ydcw"]
+[ext_resource type="Texture2D" uid="uid://d4dq2hh6pw3m" path="res://assets/kenney_platformer-art-candy/Vector/sheet.svg" id="1_2roem"]
+[ext_resource type="AudioStream" uid="uid://6skpap807fgh" path="res://assets/kenney_impact-sounds/Audio/impactGeneric_light_000.ogg" id="3_6dkhk"]
+[ext_resource type="Script" path="res://scenes/AudioFx.gd" id="3_7vdk2"]
+[ext_resource type="AudioStream" uid="uid://cr0gi5o6ljf4l" path="res://assets/kenney_impact-sounds/Audio/impactGeneric_light_001.ogg" id="4_yakdc"]
+[ext_resource type="AudioStream" uid="uid://b5l65ecgni0j3" path="res://assets/kenney_impact-sounds/Audio/impactGeneric_light_002.ogg" id="6_y5qdt"]
+[ext_resource type="AudioStream" uid="uid://cf5pgchixjgof" path="res://assets/kenney_impact-sounds/Audio/impactGeneric_light_003.ogg" id="7_fgddu"]
+[ext_resource type="AudioStream" uid="uid://g6ddnyv8cgu7" path="res://assets/kenney_impact-sounds/Audio/impactGeneric_light_004.ogg" id="8_bta62"]
+[ext_resource type="AudioStream" uid="uid://0wp16k4mc3wx" path="res://assets/kenney_impact-sounds/Audio/impactPlate_heavy_003.ogg" id="9_uoa4n"]
+[ext_resource type="AudioStream" uid="uid://cq3cj7f7xj1au" path="res://assets/kenney_impact-sounds/Audio/impactMining_000.ogg" id="10_3q8x6"]
+[ext_resource type="AudioStream" uid="uid://cbkww3pf20t57" path="res://assets/kenney_impact-sounds/Audio/impactBell_heavy_003.ogg" id="10_fd7vq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ig8ld"]
+radius = 25.02
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_00h23"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 0
+mass = 0.3
+max_contacts_reported = 10
+contact_monitor = true
+can_sleep = false
+script = ExtResource("1_1ydcw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -10)
+texture = ExtResource("1_2roem")
+region_enabled = true
+region_rect = Rect2(840.89, 3.45166, 64.205, 67.1896)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ig8ld")
+
+[node name="AudioFx" type="Node2D" parent="."]
+script = ExtResource("3_7vdk2")
+
+[node name="FloorSounds" type="Node2D" parent="AudioFx"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AudioFx/FloorSounds"]
+stream = ExtResource("3_6dkhk")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="AudioFx/FloorSounds"]
+stream = ExtResource("4_yakdc")
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="AudioFx/FloorSounds"]
+stream = ExtResource("6_y5qdt")
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="AudioFx/FloorSounds"]
+stream = ExtResource("7_fgddu")
+
+[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="AudioFx/FloorSounds"]
+stream = ExtResource("8_bta62")
+
+[node name="BounceSounds" type="Node2D" parent="AudioFx"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AudioFx/BounceSounds"]
+stream = ExtResource("9_uoa4n")
+volume_db = 7.293
+
+[node name="GoalReachedSounds" type="Node2D" parent="AudioFx"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AudioFx/GoalReachedSounds"]
+stream = ExtResource("10_fd7vq")
+volume_db = 18.873
+
+[node name="PortalEnteredSounds" type="Node2D" parent="AudioFx"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AudioFx/PortalEnteredSounds"]
+stream = ExtResource("10_3q8x6")
+volume_db = 23.061
+pitch_scale = 0.79
+
+[node name="FreeTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_00h23")
+
+[connection signal="body_entered" from="." to="." method="on_body_entered"]
+[connection signal="bounce" from="." to="AudioFx" method="on_bounce"]
+[connection signal="floor" from="." to="AudioFx" method="on_floor"]
+[connection signal="goal_reached" from="." to="AudioFx" method="on_goal_reached"]
+[connection signal="portal_entered" from="." to="AudioFx" method="_on_portal_entered"]
+[connection signal="timeout" from="FreeTimer" to="." method="on_free_timeout"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_entered"]
+[connection signal="area_exited" from="Hitbox" to="." method="_on_hitbox_exited"]

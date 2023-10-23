@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfb75e266l35n"]
+
+[ext_resource type="Script" path="res://scenes/LevelMain.gd" id="1_pvbgp"]
+
+[node name="LevelMain" type="Node"]
+script = ExtResource("1_pvbgp")

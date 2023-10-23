@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://2mokpmh6xued"]
+
+[ext_resource type="Script" path="res://scenes/portal-in.gd" id="1_b12w6"]
+[ext_resource type="Shader" uid="uid://b7s32cdvk7ivd" path="res://scenes/portal.tres" id="1_fq3gm"]
+[ext_resource type="Texture2D" uid="uid://o4jjnhmxuwc0" path="res://assets/kenney_platformer-art-candy/Tiles/lollipopRed.png" id="2_mgojh"]
+
+[sub_resource type="Gradient" id="Gradient_ryqh7"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b2owj"]
+gradient = SubResource("Gradient_ryqh7")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_05uir"]
+shader = ExtResource("1_fq3gm")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvmr8"]
+size = Vector2(80, 14.0001)
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_b12w6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -66.0
+offset_top = -60.0
+offset_right = -2.0
+offset_bottom = 60.0
+texture = SubResource("GradientTexture2D_b2owj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_05uir")
+scale = Vector2(0.450231, 1.71565)
+texture = ExtResource("2_mgojh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(28, -9.09495e-13)
+rotation = -1.57079
+shape = SubResource("RectangleShape2D_mvmr8")
+one_way_collision = true
