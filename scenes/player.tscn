@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://bb5ufxd3s030g"]
 
-[ext_resource type="Script" path="res://scenes/player.gd" id="1_5ad26"]
+[ext_resource type="Script" uid="uid://dvhapt6lsft5q" path="res://scenes/player.gd" id="1_5ad26"]
 [ext_resource type="Texture2D" uid="uid://d4dq2hh6pw3m" path="res://assets/kenney_platformer-art-candy/Vector/sheet.svg" id="1_fq7ul"]
 [ext_resource type="PackedScene" uid="uid://c40kn3t6wd1n" path="res://scenes/gpu_particles_2d.tscn" id="2_eslxm"]
 [ext_resource type="Texture2D" uid="uid://dbkn7p0hkqkrx" path="res://assets/character_femalePerson_walk0.png" id="4_ox2vs"]
@@ -248,5 +248,10 @@ autoplay = "walk"
 position = Vector2(59, -44)
 scale = Vector2(0.348958, 0.348958)
 sprite_frames = SubResource("SpriteFrames_ykbp6")
-animation = &"idle"
+animation = &"walk"
 autoplay = "walk"
+frame_progress = 0.608877
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

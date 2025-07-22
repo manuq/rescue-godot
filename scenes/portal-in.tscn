@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://2mokpmh6xued"]
 
-[ext_resource type="Script" path="res://scenes/portal-in.gd" id="1_b12w6"]
+[ext_resource type="Script" uid="uid://bo2vq8vx5mw12" path="res://scenes/portal-in.gd" id="1_b12w6"]
 [ext_resource type="Shader" uid="uid://b7s32cdvk7ivd" path="res://scenes/portal.tres" id="1_fq3gm"]
 [ext_resource type="Texture2D" uid="uid://o4jjnhmxuwc0" path="res://assets/kenney_platformer-art-candy/Tiles/lollipopRed.png" id="2_mgojh"]
 

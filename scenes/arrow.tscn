@@ -35,8 +35,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fimmu"]
 _data = {
-"RESET": SubResource("Animation_un8f2"),
-"move_arrow": SubResource("Animation_nirys")
+&"RESET": SubResource("Animation_un8f2"),
+&"move_arrow": SubResource("Animation_nirys")
 }
 
 [node name="Node2D" type="Node2D"]
@@ -46,9 +46,9 @@ modulate = Color(0.996078, 0, 0.443137, 1)
 texture = ExtResource("1_4epwb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "move_arrow"
 reset_on_save = false
-speed_scale = 1.5
 libraries = {
-"": SubResource("AnimationLibrary_fimmu")
+&"": SubResource("AnimationLibrary_fimmu")
 }
+autoplay = "move_arrow"
+speed_scale = 1.5

@@ -1,7 +1,7 @@
 [gd_resource type="VisualShader" load_steps=13 format=3 uid="uid://dmobr62m232a8"]
 
 [ext_resource type="Texture2D" uid="uid://i54fxaxadwue" path="res://assets/kenney_background-elements-redux/Backgrounds/backgroundForest.png" id="1_18cwx"]
-[ext_resource type="Script" path="res://addons/shaderV/uv/animated/distortionUVAnimated.gd" id="2_v5wu4"]
+[ext_resource type="Script" uid="uid://sam2aa0yjet6" path="res://addons/shaderV/uv/animated/distortionUVAnimated.gd" id="2_v5wu4"]
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_shgxw"]
 

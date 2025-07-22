@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c7tge7qhfforp"]
 
-[ext_resource type="Script" path="res://scenes/portal-out.gd" id="1_07j36"]
+[ext_resource type="Script" uid="uid://dftgvfjsebuuo" path="res://scenes/portal-out.gd" id="1_07j36"]
 [ext_resource type="Shader" uid="uid://b7s32cdvk7ivd" path="res://scenes/portal.tres" id="1_vhpot"]
 [ext_resource type="Texture2D" uid="uid://d3rvy23acnq1j" path="res://assets/kenney_platformer-art-candy/Tiles/lollipopGreen.png" id="2_awpta"]
 

@@ -1,6 +1,6 @@
 [gd_resource type="VisualShader" load_steps=7 format=3 uid="uid://b7s32cdvk7ivd"]
 
-[ext_resource type="Script" path="res://addons/shaderV/uv/animated/rotateAnimated.gd" id="1_wd1bm"]
+[ext_resource type="Script" uid="uid://8opi7wxpgtlp" path="res://addons/shaderV/uv/animated/rotateAnimated.gd" id="1_wd1bm"]
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_nbkfn"]
 input_name = "texture"

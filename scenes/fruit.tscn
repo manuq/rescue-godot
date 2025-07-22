@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://dme85xinebhav"]
 
-[ext_resource type="Script" path="res://scenes/fruit.gd" id="1_1ydcw"]
+[ext_resource type="Script" uid="uid://cpqcqw752e2qp" path="res://scenes/fruit.gd" id="1_1ydcw"]
 [ext_resource type="Texture2D" uid="uid://d4dq2hh6pw3m" path="res://assets/kenney_platformer-art-candy/Vector/sheet.svg" id="1_2roem"]
 [ext_resource type="AudioStream" uid="uid://6skpap807fgh" path="res://assets/kenney_impact-sounds/Audio/impactGeneric_light_000.ogg" id="3_6dkhk"]
-[ext_resource type="Script" path="res://scenes/AudioFx.gd" id="3_7vdk2"]
+[ext_resource type="Script" uid="uid://cfoe5in24h1j2" path="res://scenes/AudioFx.gd" id="3_7vdk2"]
 [ext_resource type="AudioStream" uid="uid://cr0gi5o6ljf4l" path="res://assets/kenney_impact-sounds/Audio/impactGeneric_light_001.ogg" id="4_yakdc"]
 [ext_resource type="AudioStream" uid="uid://b5l65ecgni0j3" path="res://assets/kenney_impact-sounds/Audio/impactGeneric_light_002.ogg" id="6_y5qdt"]
 [ext_resource type="AudioStream" uid="uid://cf5pgchixjgof" path="res://assets/kenney_impact-sounds/Audio/impactGeneric_light_003.ogg" id="7_fgddu"]
@@ -13,16 +13,16 @@
 [ext_resource type="AudioStream" uid="uid://cbkww3pf20t57" path="res://assets/kenney_impact-sounds/Audio/impactBell_heavy_003.ogg" id="10_fd7vq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ig8ld"]
-radius = 25.02
+radius = 11.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_00h23"]
 
 [node name="RigidBody2D" type="RigidBody2D"]
 collision_layer = 0
 mass = 0.3
-max_contacts_reported = 10
-contact_monitor = true
 can_sleep = false
+contact_monitor = true
+max_contacts_reported = 10
 script = ExtResource("1_1ydcw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -32,6 +32,7 @@ region_enabled = true
 region_rect = Rect2(840.89, 3.45166, 64.205, 67.1896)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
 shape = SubResource("CircleShape2D_ig8ld")
 
 [node name="AudioFx" type="Node2D" parent="."]
@@ -77,6 +78,7 @@ pitch_scale = 0.79
 one_shot = true
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 4
 

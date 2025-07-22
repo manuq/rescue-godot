@@ -67,4 +67,3 @@ func restart():
 	for time in spawn_times:
 		await get_tree().create_timer(time).timeout
 		spawn_fruit()
-

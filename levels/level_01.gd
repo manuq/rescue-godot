@@ -5,7 +5,7 @@ var fruits_spawned = 0
 var fruits_saved = 0
 var fruits_missed = 0
 const FRUIT_START = Vector2(242, 273)
-const spawn_times = [0.0, 0.2]
+const spawn_times = [0.0, 0.2, 5.0, 5.5]
 @onready var previous_window_mode = DisplayServer.window_get_mode()
 # @onready var start_timer =
 
@@ -55,4 +55,3 @@ func _on_timer_timeout():
 	for time in spawn_times:
 		await get_tree().create_timer(time).timeout
 		spawn_fruit()
-
